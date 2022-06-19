@@ -12,7 +12,9 @@ public class ListServlet extends HttpServlet {
     private static List<String> listName = Arrays.asList(
             "Alex",
             "Steven",
-            "Maria"
+            "Maria",
+            "Kate",
+            "Eugene"
             );
 
 
