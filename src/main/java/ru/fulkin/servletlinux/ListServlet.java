@@ -16,7 +16,8 @@ public class ListServlet extends HttpServlet {
             "Kate",
             "Eugene",
             "Noah",
-            "Liam"
+            "Liam",
+            "Viliam"
     );
 
 
