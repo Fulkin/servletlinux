@@ -14,8 +14,10 @@ public class ListServlet extends HttpServlet {
             "Steven",
             "Maria",
             "Kate",
-            "Eugene"
-            );
+            "Eugene",
+            "Noah",
+            "Liam"
+    );
 
 
     @Override
