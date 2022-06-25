@@ -7,13 +7,13 @@
     <display-name>ServletLinux</display-name>
 
     <servlet>
-        <servlet-name>listServlet</servlet-name>
-        <servlet-class>ru.fulkin.servletlinux.ListServlet</servlet-class>
+        <servlet-name>clientServlet</servlet-name>
+        <servlet-class>ru.fulkin.servletlinux.web.ClientServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>listServlet</servlet-name>
-        <url-pattern>/listname</url-pattern>
+        <servlet-name>clientServlet</servlet-name>
+        <url-pattern>/clients</url-pattern>
     </servlet-mapping>
 
 </web-app>
