@@ -26,27 +26,36 @@
 <body>
 <section>
     <h3><a href="index.html">Home</a></h3>
+    <a href="clients">Client list</a>
     <hr>
-    <h2>${param.action == 'create' ? 'Create client' : 'Edit client'}</h2>
+    <h2>Create product and dealToList</h2>
     <jsp:useBean id="client" type="ru.fulkin.servletlinux.model.Client" scope="request"/>
     <form method="post" action="clients">
-        <input type="hidden" name="action" value="post_client">
+        <input type="hidden" name="action" value="post_deal">
         <input type="hidden" name="id" value="${client.id}">
+
+        <%--<jsp:useBean id="product" type="ru.fulkin.servletlinux.model.Product"/>--%>
         <dl>
-            <dt>First name:</dt>
-            <dd><input type="text" value="${client.firstname}" size=50 name="firstname" required></dd>
+            <dt>Product:</dt>
+            <dd>
+                <select name="product_item">
+                    <c:forEach items="${requestScope.products}" var="product">
+
+                        <option value="${product.id}">
+                                ${product.name} Price:${product.price}
+                        </option>
+                    </c:forEach>
+                </select>
+            </dd>
+        </dl>
+
+        <dl>
+            <dt>Date:</dt>
+            <dd><input type="datetime-local" name="date" required></dd>
         </dl>
         <dl>
-            <dt>Last name:</dt>
-            <dd><input type="text" value="${client.lastname}" size=50 name="lastname" required></dd>
-        </dl>
-        <dl>
-            <dt>City:</dt>
-            <dd><input type="text" value="${client.city}" size=50 name="city" required></dd>
-        </dl>
-        <dl>
-            <dt>Phone:</dt>
-            <dd><input type="text" value="${client.phone}" size=20 name="phone" required></dd>
+            <dt>Amount:</dt>
+            <dd><input type="number" name="amount" required></dd>
         </dl>
         <button type="submit">Save</button>
         <button onclick="window.history.back()" type="button">Cancel</button>

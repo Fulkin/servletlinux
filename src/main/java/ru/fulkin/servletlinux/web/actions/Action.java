@@ -6,7 +6,14 @@ public enum Action {
     ALL("all", new AllActionType()),
     CREATE("create", new CreateActionType()),
     UPDATE("update", new UpdateActionType()),
-    DELETE("delete", new DeleteAction());
+    DELETE("delete", new DeleteAction()),
+    GET_DEALS("deallist", new DealListActionType()),
+    GET_PRODUCT("product", new ProductsActionType()),
+    ADD_PRODUCT_DEAL("add_deal", new AddDealActionType()),
+
+
+    POST_DEAL("post_deal", new PostDealActionType()),
+    POST_CLIENT("post_client", new PostClientActionType());
 
     private String actionName;
     private ActionType actionType;

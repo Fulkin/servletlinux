@@ -10,7 +10,9 @@
     <h3><a href="index.html">Home</a></h3>
     <hr/>
     <h2>Persons</h2>
-    <a href="clients?action=create">Add Person</a>
+    <a href="clients?action=create">Add client</a>
+    <br>
+    <a href="clients?action=product">See products</a>
     <br><br>
     <table border="1" cellpadding="8" cellspacing="0">
         <thead>
@@ -20,6 +22,7 @@
             <th>Last Name</th>
             <th>City</th>
             <th>Phone</th>
+            <th>Deals List</th>
             <th></th>
             <th></th>
         </tr>
@@ -32,12 +35,12 @@
                 <td>${client.lastname}</td>
                 <td>${client.city}</td>
                 <td>${client.phone}</td>
+                <td><a href="clients?action=deallist&id=${client.id}">Deals</a></td>
                 <td><a href="clients?action=update&id=${client.id}">Update</a></td>
                 <td><a href="clients?action=delete&id=${client.id}">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
 </section>
-
 </body>
 </html>

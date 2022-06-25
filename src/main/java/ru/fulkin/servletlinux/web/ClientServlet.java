@@ -22,16 +22,8 @@ public class ClientServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
-        String id = req.getParameter("id");
+        String nameAction = req.getParameter("action");
+        Action.getAction(nameAction).getActionName().doAction(req, resp, clientService);
 
-        Client client = new Client(id.isEmpty() ? null : Integer.valueOf(id),
-                req.getParameter("firstname"),
-                req.getParameter("lastname"),
-                req.getParameter("city"),
-                req.getParameter("phone"));
-
-        clientService.save(client);
-        resp.sendRedirect("clients");
     }
 }
