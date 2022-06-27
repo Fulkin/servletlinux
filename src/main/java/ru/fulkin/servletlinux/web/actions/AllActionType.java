@@ -10,7 +10,7 @@ import java.io.IOException;
 public class AllActionType implements ActionType {
     @Override
     public void doAction(HttpServletRequest req, HttpServletResponse resp, ClientService clientService) throws ServletException, IOException {
-        req.setAttribute("clients", clientService.getAllPerson());
+        req.setAttribute("clients", clientService.getAllClients());
         req.getRequestDispatcher("/clients.jsp").forward(req, resp);
     }
 }

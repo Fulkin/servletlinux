@@ -2,23 +2,22 @@ package ru.fulkin.servletlinux.repository;
 
 import ru.fulkin.servletlinux.model.Client;
 import ru.fulkin.servletlinux.model.Deal;
-import ru.fulkin.servletlinux.model.DealToList;
 import ru.fulkin.servletlinux.model.Product;
 
-import java.util.Collection;
+import java.util.List;
 
 public interface ClientRepository {
-    Client save(Client client);
+    Integer save(Client client);
 
     boolean delete(int id);
 
     Client getClient(int id);
 
-    Collection<Client> getAll();
+    List<Client> getAllClients();
 
-    Collection<DealToList> getDealList(Client client);
+    List<Deal> getDealList(Client client);
 
-    Collection<Product> getProducts();
+    List<Product> getAllProducts();
 
     Product getProduct(int id);
 

@@ -13,6 +13,8 @@
     <a href="clients?action=create">Add client</a>
     <br>
     <a href="clients?action=product">See products</a>
+    <br>
+    <a href="clients?action=add_deal">Add Deal</a>
     <br><br>
     <table border="1" cellpadding="8" cellspacing="0">
         <thead>

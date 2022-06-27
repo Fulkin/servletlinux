@@ -1,6 +1,5 @@
 package ru.fulkin.servletlinux.web;
 
-import ru.fulkin.servletlinux.model.Client;
 import ru.fulkin.servletlinux.service.ClientService;
 import ru.fulkin.servletlinux.web.actions.Action;
 

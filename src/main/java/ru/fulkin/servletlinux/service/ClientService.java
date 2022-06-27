@@ -1,41 +1,33 @@
 package ru.fulkin.servletlinux.service;
 
 import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.slf4j.Logger;
 import ru.fulkin.servletlinux.model.Client;
 import ru.fulkin.servletlinux.model.Deal;
-import ru.fulkin.servletlinux.model.DealToList;
 import ru.fulkin.servletlinux.model.Product;
 import ru.fulkin.servletlinux.repository.ClientRepository;
 import ru.fulkin.servletlinux.repository.ClientRepositoryImpl;
 
-import java.io.*;
 import java.util.Collection;
-import java.util.Properties;
+import java.util.List;
+
+import static org.slf4j.LoggerFactory.getLogger;
 
 public class ClientService {
+    private static final Logger log = getLogger(ClientService.class);
+    private SessionFactory sessionFactory;
     private ClientRepository repository;
     private HikariConfig config = new HikariConfig();
 
     public ClientService() {
-        try (InputStream is = this.getClass().getClassLoader().getResourceAsStream("properties\\database.properties")){
-            Class.forName("org.postgresql.Driver");
-            Properties props = new Properties();
-            props.load(is);
-            config.setJdbcUrl(props.getProperty("db.url"));
-            config.setUsername(props.getProperty("db.user"));
-            config.setPassword(props.getProperty("db.password"));
-
-            HikariDataSource ds = new HikariDataSource(config);
-            repository = new ClientRepositoryImpl(ds);
-        } catch (ClassNotFoundException | IOException e) {
-            throw new IllegalStateException("Invalid config file");
-        }
-
+        sessionFactory = new Configuration().configure().buildSessionFactory();
+        repository = new ClientRepositoryImpl(sessionFactory);
     }
 
-    public Collection<Client> getAllPerson()  {
-        return repository.getAll();
+    public List<Client> getAllClients()  {
+        return repository.getAllClients();
     }
 
     public Client get(int id) {
@@ -46,16 +38,17 @@ public class ClientService {
         repository.delete(id);
     }
 
-    public void save(Client client) {
-        repository.save(client);
+    public Integer save(Client client) {
+        return repository.save(client);
     }
 
-    public Collection<DealToList> getDealList(Client client) {
+    public Collection<Deal> getDealList(Client client) {
+        log.info("inset in getDealList method");
         return repository.getDealList(client);
     }
 
-    public Collection<Product> getProducts() {
-        return repository.getProducts();
+    public List<Product> getProducts() {
+        return repository.getAllProducts();
     }
 
     public Product getProduct(int id){
@@ -67,6 +60,6 @@ public class ClientService {
     }
 
     public Collection<Product> getAllProducts() {
-        return repository.getProducts();
+        return repository.getAllProducts();
     }
 }

@@ -13,7 +13,6 @@
 
     <jsp:useBean id="client" type="ru.fulkin.servletlinux.model.Client" scope="request"/>
     <h2>Deal List for ${client.id} client</h2>
-    <a href="clients?action=add_deal&id=${client.id}">Add Deal</a>
     <br><br>
     <table border="1" cellpadding="8" cellspacing="0">
         <thead>
@@ -28,10 +27,10 @@
         <c:forEach items="${requestScope.dealsToList}" var="dealToList">
             <tr>
                 <td>${dealToList.date.toLocalDate()} ${dealToList.date.toLocalTime()}</td>
-                <td>${dealToList.productName}</td>
-                <td>${dealToList.price}</td>
+                <td>${dealToList.product.name}</td>
+                <td>${dealToList.product.price}</td>
                 <td>${dealToList.amount}</td>
-                <td>${dealToList.sum}</td>
+                <td>${dealToList.product.price * dealToList.amount}</td>
             </tr>
         </c:forEach>
     </table>

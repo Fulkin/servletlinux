@@ -1,5 +1,6 @@
 package ru.fulkin.servletlinux.web.actions;
 
+import ru.fulkin.servletlinux.model.Client;
 import ru.fulkin.servletlinux.model.Deal;
 import ru.fulkin.servletlinux.model.Product;
 import ru.fulkin.servletlinux.service.ClientService;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PostDealActionType implements ActionType {
 
@@ -29,14 +32,18 @@ public class PostDealActionType implements ActionType {
             out.println("</script>");
             return;
         }
-        int idClient = Integer.valueOf(req.getParameter("id"));
         LocalDateTime date = LocalDateTime.parse(req.getParameter("date"));
         remnant = remnant - amount;
+        product.setRemnant(remnant);
+        String[] clientsItems = req.getParameterValues("clients_item");
+        List<Client> clients = new ArrayList<>();
+        for (int i = 0; i < clientsItems.length; i++) {
+            clients.add(clientService.get(Integer.valueOf(clientsItems[i])));
+        }
 
-        Deal deal = new Deal(date, amount, idProduct, idClient, remnant);
+        Deal deal = new Deal(date, amount, product, clients);
 
         clientService.saveDeal(deal);
-        req.setAttribute("id", idClient);
-        Action.getAction("deallist").getActionName().doAction(req, resp, clientService);
+        resp.sendRedirect("clients");
     }
 }
