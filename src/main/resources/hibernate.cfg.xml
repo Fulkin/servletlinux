@@ -20,9 +20,15 @@
 
         <!--<property name="hibernate.current_session_context_class">thread</property>-->
 
-        <mapping class="ru.fulkin.servletlinux.model.Client"/>
-        <mapping class="ru.fulkin.servletlinux.model.Product"/>
-        <mapping class="ru.fulkin.servletlinux.model.Deal"/>
-        <mapping class="ru.fulkin.servletlinux.model.DealClient"/>
+        <mapping class="ru.fulkin.servletlinux.model.client.Client"/>
+        <mapping class="ru.fulkin.servletlinux.model.client.Product"/>
+        <mapping class="ru.fulkin.servletlinux.model.client.Deal"/>
+        <mapping class="ru.fulkin.servletlinux.model.client.DealClient"/>
+
+        <mapping class="ru.fulkin.servletlinux.additionalTasks.inheritance.Person"/>
+        <mapping class="ru.fulkin.servletlinux.additionalTasks.inheritance.Student"/>
+        <mapping class="ru.fulkin.servletlinux.additionalTasks.inheritance.Lecture"/>
+        <mapping class="ru.fulkin.servletlinux.additionalTasks.inheritance.Instructor"/>
+
     </session-factory>
 </hibernate-configuration>

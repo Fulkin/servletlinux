@@ -1,8 +1,7 @@
-package ru.fulkin.servletlinux.model;
+package ru.fulkin.servletlinux.model.client;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Collections;
 import java.util.List;
 
 @NamedEntityGraph(

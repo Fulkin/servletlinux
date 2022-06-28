@@ -16,4 +16,14 @@
         <url-pattern>/clients</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>inheritanceServlet</servlet-name>
+        <servlet-class>ru.fulkin.servletlinux.web.InheritanceServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>inheritanceServlet</servlet-name>
+        <url-pattern>/inheritance</url-pattern>
+    </servlet-mapping>
+
 </web-app>

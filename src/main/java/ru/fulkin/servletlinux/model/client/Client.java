@@ -1,4 +1,4 @@
-package ru.fulkin.servletlinux.model;
+package ru.fulkin.servletlinux.model.client;
 
 import javax.persistence.*;
 import java.util.List;
@@ -44,7 +44,8 @@ public class Client {
     @Column(name = "phone")
     private String phone;
 
-    @ManyToMany(cascade = CascadeType.REMOVE)
+    //@ManyToMany(cascade = CascadeType.REMOVE)
+    @ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     @JoinTable(name = "deal_client",
             joinColumns = {@JoinColumn(name = "client_id")},
             inverseJoinColumns = {@JoinColumn(name = "deal_id")})
@@ -111,5 +112,17 @@ public class Client {
 
     public void setDeals(List<Deal> deals) {
         this.deals = deals;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", city='" + city + '\'' +
+                ", phone='" + phone + '\'' +
+                ", deals=" + deals +
+                '}';
     }
 }

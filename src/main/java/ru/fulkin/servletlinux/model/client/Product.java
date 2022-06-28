@@ -1,9 +1,9 @@
-package ru.fulkin.servletlinux.model;
+package ru.fulkin.servletlinux.model.client;
 
 import javax.persistence.*;
 
 @Entity(name = "product")
-@Table(name = "product")
+@Table(name = "product", indexes = { @Index(name = "IDX_product_remnant", columnList = "remnant") })
 public class Product {
 
     @Id
@@ -64,5 +64,15 @@ public class Product {
 
     public void setRemnant(int remnant) {
         this.remnant = remnant;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", remnant=" + remnant +
+                '}';
     }
 }

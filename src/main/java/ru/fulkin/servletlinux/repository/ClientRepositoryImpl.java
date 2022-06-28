@@ -6,9 +6,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.slf4j.Logger;
-import ru.fulkin.servletlinux.model.Client;
-import ru.fulkin.servletlinux.model.Deal;
-import ru.fulkin.servletlinux.model.Product;
+import ru.fulkin.servletlinux.model.client.Client;
+import ru.fulkin.servletlinux.model.client.Deal;
+import ru.fulkin.servletlinux.model.client.Product;
 
 import javax.persistence.EntityGraph;
 import java.sql.Connection;

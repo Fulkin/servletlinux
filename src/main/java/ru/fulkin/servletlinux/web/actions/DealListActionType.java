@@ -1,8 +1,8 @@
 package ru.fulkin.servletlinux.web.actions;
 
 import org.slf4j.Logger;
-import ru.fulkin.servletlinux.model.Client;
-import ru.fulkin.servletlinux.model.Deal;
+import ru.fulkin.servletlinux.model.client.Client;
+import ru.fulkin.servletlinux.model.client.Deal;
 import ru.fulkin.servletlinux.service.ClientService;
 import ru.fulkin.servletlinux.util.WebUtil;
 

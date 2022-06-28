@@ -1,6 +1,6 @@
 package ru.fulkin.servletlinux.web.actions;
 
-import ru.fulkin.servletlinux.model.Client;
+import ru.fulkin.servletlinux.model.client.Client;
 import ru.fulkin.servletlinux.service.ClientService;
 
 import javax.servlet.ServletException;

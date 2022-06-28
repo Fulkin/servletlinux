@@ -1,4 +1,4 @@
-package ru.fulkin.servletlinux.model;
+package ru.fulkin.servletlinux.model.client;
 
 import javax.persistence.*;
 

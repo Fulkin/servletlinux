@@ -4,11 +4,12 @@ import com.zaxxer.hikari.HikariConfig;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
-import ru.fulkin.servletlinux.model.Client;
-import ru.fulkin.servletlinux.model.Deal;
-import ru.fulkin.servletlinux.model.Product;
+import ru.fulkin.servletlinux.model.client.Client;
+import ru.fulkin.servletlinux.model.client.Deal;
+import ru.fulkin.servletlinux.model.client.Product;
 import ru.fulkin.servletlinux.repository.ClientRepository;
 import ru.fulkin.servletlinux.repository.ClientRepositoryImpl;
+import ru.fulkin.servletlinux.util.HibernateUtil;
 
 import java.util.Collection;
 import java.util.List;
@@ -22,7 +23,7 @@ public class ClientService {
     private HikariConfig config = new HikariConfig();
 
     public ClientService() {
-        sessionFactory = new Configuration().configure().buildSessionFactory();
+        sessionFactory = HibernateUtil.getSessionFactory();
         repository = new ClientRepositoryImpl(sessionFactory);
     }
 

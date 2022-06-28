@@ -1,8 +1,8 @@
 package ru.fulkin.servletlinux.repository;
 
-import ru.fulkin.servletlinux.model.Client;
-import ru.fulkin.servletlinux.model.Deal;
-import ru.fulkin.servletlinux.model.Product;
+import ru.fulkin.servletlinux.model.client.Client;
+import ru.fulkin.servletlinux.model.client.Deal;
+import ru.fulkin.servletlinux.model.client.Product;
 
 import java.util.List;
 
